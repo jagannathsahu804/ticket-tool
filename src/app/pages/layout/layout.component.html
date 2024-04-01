@@ -1,0 +1,20 @@
+<div class="body">
+    <div class="wrapper">
+        <div class="sidebar">
+            <h2>TICKETS MANAGER</h2>
+            <ul>
+                <li><a routerLink="/dashboard">Dashboard</a></li>
+                <li><a routerLink="/employee">Employee</a></li>
+                <li><a routerLink="/department">Department</a></li>
+                <li><a routerLink="/tickets">Tickets</a></li>
+                <li><a routerLink="/new-ticket">New ticket</a></li>
+            </ul>
+            <div class="social_media">
+                <a href="#">{{loggedData.email}}</a>
+            </div>
+        </div>
+        <div class="main_content">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
