@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { Constant } from '../constant/Constant';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { APIResponse, Department } from '../models/API.Model';
 
 @Injectable({
@@ -15,6 +15,12 @@ export class DepartmentService {
   getAllDept() :Observable<APIResponse>{
     return this.http.get<APIResponse>(environment.API_URL + Constant.API_END_Point.GET_DEPARTMENT)
   }
+  getDeptList() :Observable<Department[]>{
+    return this.http.get<Department[]>(environment.API_URL + Constant.API_END_Point.GET_DEPARTMENT).pipe(map((res:any)=>{
+      return res.values;
+    }))
+  }
+  
   createNewDept(obj: Department) :Observable<APIResponse>{
     return this.http.post<APIResponse>(environment.API_URL + Constant.API_END_Point.CREATE_DEPARTMENT,obj)
   }

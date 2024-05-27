@@ -37,19 +37,57 @@ export class DepartmentComponent implements OnInit {
 
   onSave() {
     this.employee$?.subscribe(employees => {
-      const selectedEmployee = employees.find(emp => emp.emp_id == this.empId);
+      const selectedEmployee = employees.find(emp => emp.emp_id == this.departmentObj.deptHeadEmpId);
       if (selectedEmployee) {
         this.departmentObj.deptHeadName = selectedEmployee.emp_name;
-        this.deptService.createNewDept(this.departmentObj).subscribe((res: APIResponse) => {
-          if (res.status) {
-            alert('Department created')
-            this.loadDepartment();
-          } else {
-            alert(res.message)
-          }
-        })
       }
+      this.deptService.createNewDept(this.departmentObj).subscribe((res: APIResponse) => {
+        if (res.status) {
+          this.loadDepartment();
+        }
+        alert(res.message)
+      })
     });
+  }
+
+  onEdit(item: Department) {
+    this.departmentObj = item;
+  }
+
+  onUpdate() {
+    this.employee$?.subscribe(employees => {
+      const selectedEmployee = employees.find(emp => emp.emp_id == this.departmentObj.deptHeadEmpId);
+      if (selectedEmployee) {
+        this.departmentObj.deptHeadName = selectedEmployee.emp_name;
+      }
+      this.deptService.updateDept(this.departmentObj).subscribe((res: APIResponse) => {
+        if (res.status) {
+          alert("Department Updation Success");
+          this.loadDepartment();
+        } else {
+          alert(res.message);
+        }
+        this.departmentObj = new Department();
+      })
+    });
+  }
+
+  reset() {
+    this.departmentObj = new Department();
+  }
+
+  onDelete(id: number) {
+    const isDelete = confirm("Are you sure you want to Delete ??");
+    if (isDelete) {
+      this.deptService.deletedept(id).subscribe((res: APIResponse) => {
+        if (res.status) {
+          alert("Department Deleted Successfully!!");
+          this.loadDepartment();
+        } else {
+          alert(res.message);
+        }
+      })
+    }
   }
 
 }

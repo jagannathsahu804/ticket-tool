@@ -1,1 +1,135 @@
-<p>employee works!</p>
+<div class="container mt-5">
+    <div class="row">
+        <div [ngClass]="isEmpFormVisible ? 'col-md-8' : 'col-md-12'">
+            <div class="card">
+                <div class="card-header bg-success">
+                    <div class="row">
+                        <div class="col-6">
+                            Employee List
+                        </div>
+                        <div class="col-6 text-end">
+                            <button class="btn btn-sm btn-primary" (click)="isEmpFormVisible = true">Add New</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 pt-2" *ngFor="let item of employeeList">
+                            <div class="card">
+                                <div
+                                    class="card-header bg-primary text-white d-flex align-items-center justify-content-between">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fa fa-user" style="padding-right: 7px;"></i> <span
+                                            class="text-design">{{item.emp_name}}</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <i class="fa fa-pencil-square fl" aria-hidden="true" (click)="onEdit(item)"></i>
+                                        <i class="fa fa-minus-square fl" aria-hidden="true"
+                                            (click)="onDelete(item.emp_id)"></i>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row pt-3">
+                                        <div class="col-4">
+                                            <i class="fa fa-phone" aria-hidden="true"></i> {{item.phone}}
+                                        </div>
+                                        <div class="col-8">
+                                            <i class="fa fa-envelope" aria-hidden="true"></i> {{item.email}}
+                                        </div>
+                                    </div>
+                                    <div class="row pt-2">
+                                        <div class="col-4">
+                                            <i class="fa fa-user-secret" aria-hidden="true"></i> {{item.role | na}}
+                                        </div>
+                                        <div class="col-8">
+                                            <i class="fa fa-server"></i> {{item.deptName}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4" *ngIf="isEmpFormVisible">
+            <div class="card">
+                <div class="card-header bg-success">
+                    <div class="row">
+                        <div class="col-6">
+                            New Employee
+                        </div>
+                        <div class="col-6 text-end">
+                            <button class="btn btn-sm btn-primary" (click)="onClose()">Close</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" class="form-control" [(ngModel)]="employeeObj.emp_name">
+                        </div>
+                        <div class="col-6">
+                            <label for="contact">Contact No</label>
+                            <input type="text" id="contact" class="form-control" [(ngModel)]="employeeObj.phone">
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-6">
+                            <label for="email">Email ID</label>
+                            <input type="email" id="email" class="form-control" [(ngModel)]="employeeObj.email"
+                                [disabled]="isEdit == true">
+                        </div>
+                        <div class="col-6">
+                            <label>Gender</label><br>
+                            <input type="radio" id="male" name="gender" value="Male" [(ngModel)]="employeeObj.gender">
+                            <label for="male">Male</label>
+                            <input type="radio" id="female" name="gender" value="Female"
+                                [(ngModel)]="employeeObj.gender">
+                            <label for="female">Female</label>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-6">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" class="form-control"
+                                [(ngModel)]="employeeObj.password">
+                        </div>
+                        <div class="col-6">
+                            <label for="dept">Select Department</label>
+                            <p>{{employeeObj| json}}</p>
+                            <select id="dept" class="form-select" [(ngModel)]="employeeObj.deptId">
+                                @for (item of deptList$ | async; track item.deptId){
+                                <option [value]="item.deptId">{{item.deptName}}</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-6">
+                            <label for="role">Select Role</label>
+                            <select id="role" class="form-select" [(ngModel)]="employeeObj.role">
+                                <option value="Employee">Employee</option>
+                                <option value="Admin Department Employee">Admin Department Employee</option>
+                                <option value="Department Head">Department Head</option>
+                                <option value="Super Admin">Super Admin</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row pt-3">
+                        <div class="col-6 text-center">
+                            <button class="btn btn-secondary" (click)="resetEmp()">Reset</button>
+                        </div>
+                        <div class="col-6 text-center">
+                            <button class="btn btn-success" *ngIf="!employeeObj.emp_id"
+                                (click)="saveEmp()">Save</button>
+                            <button class="btn btn-success" *ngIf="employeeObj.emp_id"
+                                (click)="onUpdate()">Update</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -18,9 +18,7 @@ export class LoginComponent {
   constructor(private empService: EmployeeService, private router: Router){}
 
   onLogin(){
-    // debugger;
     this.empService.login(this.loginObj).subscribe((res: APIResponse) => {
-      console.log(res)
       if(res.status){
         alert("Login Success")
         localStorage.setItem("ticketData", JSON.stringify(res.values));
