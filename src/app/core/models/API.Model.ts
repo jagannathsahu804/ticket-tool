@@ -68,6 +68,8 @@ export class TicketList {
     deptName: string;
     createdByEmployee: string;
     assignedToEmployee: string;
+    assignee: string;
+    createdBy: string;
     constructor() {
         this.contactNo = '';
         this.deptName = '';
@@ -84,6 +86,8 @@ export class TicketList {
         this.state = '';
         this.ticketId = 0;
         this.ticketNo = '';
+        this.assignee= '';
+        this.createdBy= '';
     }
 }
 

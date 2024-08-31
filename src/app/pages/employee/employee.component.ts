@@ -30,6 +30,7 @@ export class EmployeeComponent implements OnInit {
       deptHeadEmpId: [null]
     });
     this.loadAllEmployees();
+    this.resetEmp();
   }
 
   loadAllEmployees() {
@@ -42,6 +43,7 @@ export class EmployeeComponent implements OnInit {
     this.employeeService.createNewEmployee(this.employeeObj).subscribe((res: APIResponse) => {
       if (res.status) {
         this.loadAllEmployees()
+        this.resetEmp();
       }
       alert(res.message)
     })

@@ -30,4 +30,8 @@ export class DepartmentService {
   deletedept(id: number) :Observable<APIResponse>{
     return this.http.delete<APIResponse>(environment.API_URL + Constant.API_END_Point.DELETE_DEPARTMENT + id)
   }
+
+  getDashboardDetails() :Observable<APIResponse>{
+    return this.http.get<APIResponse>(environment.API_URL + Constant.API_END_Point.GET_DASHBOARD_DETAILS)
+  }
 }

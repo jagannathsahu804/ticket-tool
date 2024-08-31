@@ -14,3 +14,13 @@
     font-size: larger;
     padding-right: 5px;
 }
+
+.pagination-controls button {
+    margin: 0 5px;
+    padding: 5px 10px;
+}
+
+.pagination-controls span {
+    font-weight: bold;
+}
+

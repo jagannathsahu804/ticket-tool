@@ -33,10 +33,37 @@ export class EmployeeService {
     return this.http.delete<APIResponse>(environment.API_URL + Constant.API_END_Point.DELETE_EMPLOYEE + id)
   }
   createNewTicket(obj: NewTicketObj): Observable<APIResponse> {
+    console.log('obj',obj)
     return this.http.post<APIResponse>(environment.API_URL + Constant.API_END_Point.NEW_TICKET, obj)
   }
   getTicketsCreatedByEmpId(id: number): Observable<APIResponse> {
     return this.http.get<APIResponse>(environment.API_URL + Constant.API_END_Point.GET_TICKETS_CREATED_BY_EMPLOYEE + id)
+  }
+  getNewTickets(id: number): Observable<APIResponse> {
+    return this.http.get<APIResponse>(environment.API_URL + Constant.API_END_Point.GET_NEW_TICKETS + id)
+  }
+  GetEmpByDept(deptid: number): Observable<APIResponse> {
+    console.log("heeeeeeeeeeee")
+    return this.http.get<APIResponse>(environment.API_URL + Constant.API_END_Point.GET_EMP_BY_DEPT + deptid)
+  }
+  getAllTickets(): Observable<APIResponse> {
+    return this.http.get<APIResponse>(environment.API_URL + Constant.API_END_Point.GET_ALL_TICKETS)
+  }
+  assignTicket(obj: any): Observable<APIResponse> {
+    console.log('obj',obj)
+    return this.http.post<APIResponse>(environment.API_URL + Constant.API_END_Point.ASSIGN_TICKET, obj)
+  }
+  getAssignedTickets(empid: number): Observable<APIResponse> {
+    console.log("heeeeeeeeeeee")
+    return this.http.get<APIResponse>(environment.API_URL + Constant.API_END_Point.GET_ASSIGNED_TICKETS_BY_EMPLOYEE + empid)
+  }
+  startTicket(ticketId: any): Observable<APIResponse> {
+    console.log('ticketId',ticketId)
+    return this.http.post<APIResponse>(environment.API_URL + Constant.API_END_Point.START_TICKET + ticketId, {})
+  }
+  closeTicket(ticketId: any): Observable<APIResponse> {
+    console.log('ticketId',ticketId)
+    return this.http.post<APIResponse>(environment.API_URL + Constant.API_END_Point.CLOSE_TICKET + ticketId, {})
   }
 
 }

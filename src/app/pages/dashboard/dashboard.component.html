@@ -1,1 +1,123 @@
-<p>dashboard works!</p>
+<div class="container mt-4">
+    <div class="row">
+      <!-- Employees Card -->
+      <div class="col-md-4 mb-3">
+        <div class="card text-white bg-primary">
+          <div class="card-body d-flex align-items-center justify-content-center">
+            <div class="d-flex align-items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" class="me-3">
+                <path d="M12 12c2.2 0 4 1.8 4 4s-1.8 4-4 4-4-1.8-4-4 1.8-4 4-4zm0-2c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6zm0 12c-2.2 0-4-1.8-4-4 0-2.2 1.8-4 4-4 2.2 0 4 1.8 4 4 0 2.2-1.8 4-4 4zm0 2c-3.3 0-6-2.7-6-6s2.7-6 6-6 6 2.7 6 6-2.7 6-6 6z"/>
+              </svg>
+              <div>
+                <h5 class="card-title mb-0">Employees</h5>
+                <p class="card-text mb-0">{{ totalEmployees }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Department Heads Card -->
+      <div class="col-md-4 mb-3">
+        <div class="card text-white bg-success">
+          <div class="card-body d-flex align-items-center justify-content-center">
+            <div class="d-flex align-items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" class="me-3">
+                <path d="M12 4c-2.2 0-4 1.8-4 4s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4zm0 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm0-6c-2.2 0-4 1.8-4 4 0 2.2 1.8 4 4 4 2.2 0 4-1.8 4-4 0-2.2-1.8-4-4-4zm0 12c-4.4 0-8 3.6-8 8v2h16v-2c0-4.4-3.6-8-8-8z"/>
+              </svg>
+              <div>
+                <h5 class="card-title mb-0">Department Heads</h5>
+                <p class="card-text mb-0">{{ totalDepartmentHeads }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Admin Department Employees Card -->
+      <div class="col-md-4 mb-3">
+        <div class="card text-white bg-warning">
+          <div class="card-body d-flex align-items-center justify-content-center">
+            <div class="d-flex align-items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" class="me-3">
+                <path d="M12 12c2.2 0 4 1.8 4 4s-1.8 4-4 4-4-1.8-4-4 1.8-4 4-4zm0-2c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6zm0 12c-2.2 0-4-1.8-4-4 0-2.2 1.8-4 4-4 2.2 0 4 1.8 4 4 0 2.2-1.8 4-4 4zm0 2c-3.3 0-6-2.7-6-6s2.7-6 6-6 6 2.7 6 6-2.7 6-6 6z"/>
+              </svg>
+              <div>
+                <h5 class="card-title mb-0">Admin Department Employees</h5>
+                <p class="card-text mb-0">{{ totalAdminDepartmentEmployees }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Open Tickets Card -->
+      <div class="col-md-4 mb-3">
+        <div class="card text-white bg-info">
+          <div class="card-body d-flex align-items-center justify-content-center">
+            <div class="d-flex align-items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" class="me-3">
+                <path d="M12 2c-5.5 0-10 4.5-10 10s4.5 10 10 10 10-4.5 10-10-4.5-10-10-10zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8zm-1-13h2v6h-2v-6zm0 8h2v2h-2v-2z"/>
+              </svg>
+              <div>
+                <h5 class="card-title mb-0">Open Tickets</h5>
+                <p class="card-text mb-0">{{ totalOpenTickets }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Assigned Tickets Card -->
+      <div class="col-md-4 mb-3">
+        <div class="card text-white bg-secondary">
+          <div class="card-body d-flex align-items-center justify-content-center">
+            <div class="d-flex align-items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" class="me-3">
+                <path d="M12 2c-5.5 0-10 4.5-10 10s4.5 10 10 10 10-4.5 10-10-4.5-10-10-10zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8zm-1-13h2v6h-2v-6zm0 8h2v2h-2v-2z"/>
+              </svg>
+              <div>
+                <h5 class="card-title mb-0">Assigned Tickets</h5>
+                <p class="card-text mb-0">{{ totalAssignedTickets }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Closed Tickets Card -->
+      <div class="col-md-4 mb-3">
+        <div class="card text-white bg-dark">
+          <div class="card-body d-flex align-items-center justify-content-center">
+            <div class="d-flex align-items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" class="me-3">
+                <path d="M12 2c-5.5 0-10 4.5-10 10s4.5 10 10 10 10-4.5 10-10-4.5-10-10-10zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8zm-1-13h2v6h-2v-6zm0 8h2v2h-2v-2z"/>
+              </svg>
+              <div>
+                <h5 class="card-title mb-0">Closed Tickets</h5>
+                <p class="card-text mb-0">{{ totalClosedTickets }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Tickets In Progress Card -->
+      <div class="col-md-4 mb-3">
+        <div class="card text-white bg-danger">
+          <div class="card-body d-flex align-items-center justify-content-center">
+            <div class="d-flex align-items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" class="me-3">
+                <path d="M12 2c-5.5 0-10 4.5-10 10s4.5 10 10 10 10-4.5 10-10-4.5-10-10-10zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8zm-1-13h2v6h-2v-6zm0 8h2v2h-2v-2z"/>
+              </svg>
+              <div>
+                <h5 class="card-title mb-0">Tickets In Progress</h5>
+                <p class="card-text mb-0">{{ totalTicketsInProgress }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
