@@ -5,6 +5,7 @@ import { APIResponse, Department, EmployeeModel, NewTicketObj, TicketList } from
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { EmployeeService } from '../../core/services/employee.service';
+import * as bootstrap from 'bootstrap';
 
 @Component({
   selector: 'app-tickets',
@@ -21,6 +22,7 @@ export class TicketsComponent implements OnInit {
   loggedData: any;
   currentPage: any;
   totalPages: any;
+  selectedTicket: any;
   constructor(private deptSrv: DepartmentService, private empSrv: EmployeeService) {
     this.deptList$ = deptSrv.getDeptList();
     const localData = localStorage.getItem('ticketData');
@@ -141,6 +143,14 @@ export class TicketsComponent implements OnInit {
         alert(res.message);
       }
     })
+  }
+
+  openModal(ticket: any) {
+    this.selectedTicket = ticket;
+    const modal = document.getElementById('ticketModal');
+    if (modal) {
+      new bootstrap.Modal(modal).show();
+    }
   }
 
   changePage(pg_nos: number) {

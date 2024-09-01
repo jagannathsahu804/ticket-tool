@@ -98,7 +98,6 @@
                         </div>
                         <div class="col-6">
                             <label for="dept">Select Department</label>
-                            <p>{{employeeObj| json}}</p>
                             <select id="dept" class="form-select" [(ngModel)]="employeeObj.deptId">
                                 @for (item of deptList$ | async; track item.deptId){
                                 <option [value]="item.deptId">{{item.deptName}}</option>
